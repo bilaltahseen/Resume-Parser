@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Upload a resume in PDF format and see the magic 🎉</h1>
+            <div class="container col-sm-12" id="choose-files" oncopy="return false" oncut="return false"
+                onpaste="return false">
+                <div class="row">
+
+                    <form action="/detect" method="post" enctype="multipart/form-data">
+                        <input type="text" name="job-keyword" placeholder="job-keyword" />
+                        <input accept="application/pdf" required type="file" name="resume-file" id="resume-file" />
+                        <br />
+                        <br />
+                        <input class="btn btn-primary" type="submit" style="border-radius: 4px;" name="resume-file"
+                            value="Detect">
+                    </form>
+                </div>
+            </div>
+
+            <% if (locals.content) { %>
+
+                <h4 class="text-center fw-bold text-danger">
+                    <%=content%>
+                </h4>
+
+                <% } %>
+
+
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+    <script>
+
+    </script>
+</body>
+
+</html>
